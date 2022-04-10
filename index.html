@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="game" style=" text-align:center;">
+        <div style="font-size: xx-large;">The number is: <br><span id="number" style="font-size:15em;">1</span></div>
+        <button id="start" style="pointers:cursor;overflow:hidden;margin:auto;display:block;position:relative;color:white;font-size:2em;font-weight:bold;background:rgb(245, 139, 0);padding:0.6em 1.2em;border:none;outline:none!important;box-shadow:black 2px 2px 2px!important;">Je parie !</button>
+
+        <style>
+            button::after{
+                position:absolute;
+                content:' ';
+                display:block;
+                width:40px;
+                height:100px;
+                background:rgb(255, 0, 0);
+                top:-30px;
+                left:0;
+                transform: skewX(-50deg);
+            }
+
+            button::before{
+                display:flex;
+                align-items: center;
+                justify-content:center;
+                position:absolute;
+                text-align: center;
+                content:'100% gagnant';
+                color: white;
+                font-size: 10px;
+                display:block;
+                width:10px;
+                height:10px;
+                top:50px;
+                left:40px;
+                transform:rotateZ(-38deg) translateX(-5px) translateY(-50px);
+                z-index:2;
+            }
+
+        </style>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
