@@ -107,19 +107,19 @@ function stopper(){
 /** start the game */
 function start(){
     if(!isRunning){
-        console.log('begin to run')
+        
         isRunning = true
         rollNumber()
         stopper()
 
     }else{
-        console.log('still running')
+        
     }
 }
 
 /** make the game ready to play */
 function addListeners(){
-    console.log('Ready to play')
+    
     if(!listenerAdded){
         startBtn.addEventListener('click', start)
         listenerAdded = true
