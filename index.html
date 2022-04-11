@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div id="game" style=" text-align:center;">
-        <div style="margin:auto;width:300px;font-size: xx-large;">The number is: <br><span id="number" style="margin-top:1.5em;border:solid black 1px;padding:0;font-size:10em;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif">1</span></div>
-        
+<body style="height:90vh;display:flex;align-items:center;justify-content:center;flex-direction: column;">
+    <div id="game" style="display:grid;place-items:center;text-align:center;">
+        <div style="font-weight:700;font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;margin:auto;width:300px;font-size: xx-large;color:rgb(255, 83, 83);">The number is: </div>
+        <div id="number" style="max-width:300px;margin:auto;margin-top:0.2em;box-shadow:2px 2px 2px black;color:black;border-radius:10px;border:solid black 1px;padding:0 20px;font-size:10em;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif">1</div>
         <input style="text-align:center;margin:1.1em;font-size:2em;" type="number" min="1" max="7" value="1" id="bet" name="bet">
 
-        <button id="start" style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;cursor:pointer;overflow:hidden;margin:auto;display:block;position:relative;color:white;font-size:2em;font-weight:bold;background:rgb(245, 139, 0);padding:0.6em 1.2em;border:none;outline:none!important;box-shadow:black 2px 2px 2px!important;">I bet !</button>
+        <button id="start" style="font-family: Ubuntu,'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;cursor:pointer;overflow:hidden;margin:auto;display:block;position:relative;color:white;font-size:2em;font-weight:bold;background:rgb(255, 171, 61);padding:0.6em 1.2em;border:none;outline:none!important;box-shadow:black 2px 2px 2px!important;">I bet !</button>
 
         <style>
             button::after{
@@ -21,7 +21,7 @@
                 display:block;
                 width:40px;
                 height:110px;
-                background:rgb(255, 0, 0);
+                background:rgb(255, 44, 44);
                 box-shadow:black 2px 2px 2px 1px;
                 top:-30px;
                 left:0;
