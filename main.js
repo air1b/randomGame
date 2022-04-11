@@ -1,5 +1,13 @@
 /** @var */
 
+var isDown = false
+var elt = ''
+var modal = document.querySelector('.modal')
+var title = document.querySelector('title')
+var number = document.querySelector('#number')
+var mynumber = document.querySelector('#bet')
+var emojis = ["🤣","😊","✌","🌹","🎂","🤳","🐱‍👤"]
+
 /** time to timeout */
 var time = 0
 
@@ -17,6 +25,37 @@ var listenerAdded = false
 /** game is running */
 var isRunning = false
 
+/** mount the modal component */
+function clickPopDown(){
+    isDown = !isDown
+    popDown()
+    // document.querySelector(`.modal`).parentNode.classList.add('d-none')
+}
+
+/** destroy the modal component */
+function popDown(){
+    if(!isDown){
+        document.querySelector(`#${elt}`).removeEventListener('click',clickPopDown(elt))
+        if(document.querySelector(`.modal`).parentNode.classList.contains('d-none'))
+            document.querySelector(`.modal`).parentNode.classList.remove('d-none')
+        
+        document.querySelector(`#${elt}`).removeAttribute('id')
+        modal.removeAttribute('id')
+        modal.innerHTML = ''
+        game.addEventListener('mouseover',addListeners)
+        clearTimeout(handleTimeout)
+    } 
+}
+
+function popUp(){
+    modal.parentNode.setAttribute('id',`${elt}`)
+    modal.setAttribute('id','modal')
+    var msg = elt == 'win' ? "😎 <br> You win !" : "🤦‍♂️ <br> You lose !"
+    modal.innerHTML = msg
+    document.querySelector(`#${elt}`).addEventListener('click',clickPopDown)
+}
+
+
 /** return random number (integer) */
 function randomNumber(min, max) { 
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -24,8 +63,9 @@ function randomNumber(min, max) {
 
 /** change the number */
 function changeNumber(){
-    var number = randomNumber(1,7)
-    document.querySelector('#number').innerHTML = number
+    var random_number = randomNumber(1,7)
+    number.innerHTML = random_number
+    title.innerHTML = "who is it?-->"+emojis[random_number-1]
 }
 
 /** show the final result */
@@ -33,7 +73,18 @@ function showResult(){
     clearInterval(handleInterval)
     clearTimeout(handleTimeout)
     startBtn.removeEventListener('click',start)
-    game.addEventListener('mouseover',addListeners)
+
+    if(number.innerHTML == mynumber.value){
+        elt = 'win'
+        popUp()
+        handleTimeout = setTimeout(popDown,5000)
+    }else{
+        elt = 'lose'
+        popUp()
+        handleTimeout = setTimeout(popDown,5000)
+    }
+
+
 
     /** not ready to play */
     listenerAdded = false

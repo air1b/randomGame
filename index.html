@@ -8,8 +8,11 @@
 </head>
 <body>
     <div id="game" style=" text-align:center;">
-        <div style="font-size: xx-large;">The number is: <br><span id="number" style="font-size:15em;">1</span></div>
-        <button id="start" style="pointers:cursor;overflow:hidden;margin:auto;display:block;position:relative;color:white;font-size:2em;font-weight:bold;background:rgb(245, 139, 0);padding:0.6em 1.2em;border:none;outline:none!important;box-shadow:black 2px 2px 2px!important;">I bet !</button>
+        <div style="font-size: xx-large;">The number is: <br><span id="number" style="font-size:15em;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">1</span></div>
+        
+        <input style="text-align:center;margin:1.1em;font-size:2em;" type="text" id="bet" name="bet">
+
+        <button id="start" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;cursor:pointer;overflow:hidden;margin:auto;display:block;position:relative;color:white;font-size:2em;font-weight:bold;background:rgb(245, 139, 0);padding:0.6em 1.2em;border:none;outline:none!important;box-shadow:black 2px 2px 2px!important;">I bet !</button>
 
         <style>
             button::after{
@@ -19,6 +22,7 @@
                 width:40px;
                 height:100px;
                 background:rgb(255, 0, 0);
+                box-shadow:black 2px 2px 2px 1px;
                 top:-30px;
                 left:0;
                 transform: skewX(-50deg);
@@ -43,6 +47,47 @@
             }
 
         </style>
+    </div>
+
+    <style>
+        #win,#lose{
+            display:block;
+            position:absolute;
+            content:' ';
+            width:100vw;
+            height:100vh;
+            z-index:3;
+            background: #444444aa;
+            top: 0;
+            left: 0;
+        }
+        #modal{
+            display:block;
+            position:absolute;
+            content:'';
+            width:300px;
+            height:300px;
+            z-index:3;
+            background: #ffffff;
+            transform:translate(-50%,-50%);
+            top: 50%;
+            left:50%;
+            font-size:3em;
+            display:grid;
+            place-items: center;
+            box-shadow: greenyellow 4px 4px 8px 0px;
+            text-align: center;
+        }
+
+        .d-none{
+            display:none;
+        }
+    </style>
+    <div>
+        <div class="modal">
+            <!-- 😎 You win ! -->
+            <!-- 🤦‍♂️ You lose ! -->
+        </div>
     </div>
 </body>
 <script src="main.js"></script>
