@@ -8,30 +8,68 @@
 </head>
 <body style="height:90vh;display:flex;align-items:center;justify-content:center;flex-direction: column;">
     <div id="game" style="display:grid;place-items:center;text-align:center;">
-        <div style="font-weight:700;font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;margin:auto;width:300px;font-size: xx-large;color:rgb(255, 83, 83);">The number is: </div>
-        <div id="number" style="max-width:300px;margin:auto;margin-top:0.2em;box-shadow:2px 2px 2px black;color:black;border-radius:10px;border:solid black 1px;padding:0 20px;font-size:10em;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif">1</div>
+        <!-- <div style="font-weight:700;font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;margin:auto;width:300px;font-size: xx-large;color:rgb(255, 83, 83);">The number is: </div> -->
+        <div id="number" style="display:flex;position:relative;max-width:300px;margin:auto;margin-top:0.2em;box-shadow:2px 2px 4px black;color:black;border-radius:10px;border:solid black 0px;padding:0 20px;font-size:10em;padding-bottom:15px;padding-left:15px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif">
+            <span>1</span>
+            <div style="position:absolute;top:0;left:5px;width:2px;height:2px;transform: scale(0.2);color:red;">♥</div>
+            <div style="position:absolute;bottom:40px;left:5px;width:2px;height:2px;transform: scale(0.2);color:red;">♥</div>
+            <div style="position:absolute;bottom:40px;right:30px;width:2px;height:2px;transform: scale(0.2);color:red;">♥</div>
+            <div style="position:absolute;top:0;right:30px;width:2px;height:2px;transform: scale(0.2);color:red;">♥</div>
+            <!-- <div id="number" style="position:absolute;top:45%;left:50%;transform: translate(-50%,-50%);">1</div> -->
+        </div>
         <div style="width:fit-content;margin:0;margin:1.3em;padding:0;position:relative;">
-            <div id="choose" style="text-shadow:0px 0px 1px rgb(19, 192, 19); color:rgb(19, 192, 19);text-transform:uppercase;font-size:x-small;position:absolute;bottom:10px;left:10px;">bet:</div>
-            <input style="width:60px;text-align:end;margin:0;font-size:2em;" type="number" min="1" max="7" value="1" id="bet" name="bet">
+            <div id="choose" style="text-shadow:0px 0px 1px rgb(19, 192, 19); color:rgb(19, 192, 19);font-size:x-small;text-transform:uppercase;position:absolute;bottom:10px;left:10px;">
+                <div style="font-size:10px; font-weight:800;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                    <span>b</span>
+                    <span>e</span>
+                    <span>t</span>
+                </div>
+            </div>
+            <input style="width:80px;text-align:end;margin:0;font-size:2em;" type="number" min="1" max="7" value="1" id="bet" name="bet">
         </div>
 
-        <button id="start" style="font-family: Ubuntu,'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;cursor:pointer;overflow:hidden;margin:auto;display:block;position:relative;color:white;font-size:2em;font-weight:bold;background:rgb(255, 171, 61);padding:0.6em 1.2em;border:none;outline:none!important;box-shadow:black 2px 2px 2px!important;">I bet !</button>
+        <button id="start" style="font-family: Ubuntu,'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;cursor:pointer;overflow:hidden;margin:auto;display:block;position:relative;color:white;font-size:2em;font-weight:bold;background:rgb(255, 171, 61);padding:0.6em 1.2em;border:none;outline:none!important;box-shadow:black 2px 2px 2px!important;border-radius: 10px;">I bet !</button>
 
         <style>
 
-            #number{
+            #number2{
                 transition:all 1s;
+                margin:0;
             }
 
             #choose::before{
                 position:absolute;
-                content:'choose a number ->';
+                content:'choose a number >';
                 display: inline-block;
-                top:-5px;
+                top:0px;
                 left:-100px;
-                color:black;
+                color:red;
                 text-transform: Capitalize;
                 text-shadow:none;
+                padding:0;
+                -webkit-animation: blink-1 2s both infinite;
+                        animation: blink-1 2s both infinite;
+            }
+
+            #choose div{
+                position:relative;
+                display:flex;
+                padding:0;
+                letter-spacing: 0em;
+            }
+            #choose div span{
+                border:solid black 1px;
+                padding:2px;
+            }
+
+            #choose div span:nth-child(1){
+                border:solid black 1px;
+                padding:2px;
+            }
+            #choose div span:nth-child(0){
+                border:solid black 1px;
+                border-right:none;
+                padding:2px;
             }
 
             button::after{
@@ -63,6 +101,36 @@
                 left:40px;
                 transform:rotateZ(-38deg) translateX(-5px) translateY(-50px);
                 z-index:2;
+            }
+
+
+            .blink-1 {
+                -webkit-animation: blink-1 0.6s both;
+                        animation: blink-1 0.6s both;
+            }
+
+
+            @-webkit-keyframes blink-1 {
+            0%,
+            50%,
+            100% {
+                opacity: 1;
+            }
+            25%,
+            75% {
+                opacity: 0;
+            }
+            }
+            @keyframes blink-1 {
+            0%,
+            50%,
+            100% {
+                opacity: 1;
+            }
+            25%,
+            75% {
+                opacity: 0;
+            }
             }
 
         </style>

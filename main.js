@@ -4,7 +4,7 @@ var isDown = false
 var elt = ''
 var modal = document.querySelector('.modal')
 var title = document.querySelector('title')
-var number = document.querySelector('#number')
+var number = document.querySelector('#number span')
 var mynumber = document.querySelector('#bet')
 var emojis = ["🤣","😊","✌","🌹","🎂","🤳","🐱‍👤"]
 
